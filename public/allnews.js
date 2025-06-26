@@ -1,4 +1,3 @@
-console.log('HELLOW 2')
 
 const currentUrl = window.location.href; 
 const urlWebParam = new URL(currentUrl);
