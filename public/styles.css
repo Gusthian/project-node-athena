@@ -1,0 +1,474 @@
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding-top: 120px;
+  background-color: #f0f2f5;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Header pagina fixo */
+.main-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px 5%;
+  background-color: #f8f8f8;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  flex-wrap: wrap;
+  box-sizing: border-box;
+}
+
+
+.logo h1 {
+  margin: 0;
+  font-size: 2em;
+  color: #333;
+}
+
+.header-info {
+  display: grid;
+  grid-template-areas:
+      "weather"
+      "time";
+  gap: 5px;
+  text-align: right;
+}
+
+.local-weather {
+  grid-area: weather;
+  font-size: 1.1em;
+  color: #555;
+}
+
+.local-time {
+  grid-area: time;
+  font-size: 0.9em;
+  color: #777;
+  display: flex;
+  justify-content: flex-end;
+  gap: 5px;
+}
+
+.time-number {
+  font-weight: bold;
+  min-width: 20px;
+  text-align: center;
+}
+
+/* --- MAIN --- */
+.main-content {
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  grid-template-rows: auto auto;
+  gap: 30px 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px 20px;
+}
+
+.section-news,
+.section-search,
+.news-result article {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.section-news,
+.section-search {
+  padding: 20px;
+}
+
+.news-result article {
+  padding: 15px;
+}
+
+.section-news {
+  grid-column: 1;
+  grid-row: 1;
+  width: 100%;
+}
+
+#link-all-news {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 10px 0;
+  background-color: #3f51b5;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+#link-all-news:hover {
+  background-color: #6c757d;
+}
+
+#link-all-news:active {
+  background-color: #3f51b5; 
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.section-search {
+  grid-column: 1;
+  grid-row: 2;
+  gap: 20px;
+  width: 100%;
+  margin-top: 25px; 
+}
+
+#result-news-p {
+  color: #6583e5;
+  font-weight: bold;
+}
+
+.news-result {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  display: flex; 
+  background-color: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0;
+  box-sizing: border-box;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 350px;
+}
+
+
+h3 { 
+  color: #555;
+}
+
+/* h3 dentro de search-weather */
+.search-weather h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 1.2em;
+  text-align: center;
+}
+
+
+.news-result > h3 { 
+  color: #555;
+  font-size: 1.5em;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+
+/* Formulários de Busca noticia e tempo weather  */
+.search-new,
+.search-weather {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.search-new {
+  align-items: center; 
+}
+
+
+/* ---  Resultado do Clima --- */
+.weather-result {
+  display: block;
+  background-color: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0;
+  box-sizing: border-box;
+  width: 100%;
+  margin-top: 15px;
+}
+
+/* --- Input de Texto --- */
+.search-new input[type="text"],
+.search-weather input[type="text"] {
+  width: 100%;
+  padding: 12px 20px;
+  border: 2px solid #ddd;
+  border-radius: 25px;
+  font-size: 1em;
+  outline: none;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+/* --- Estilos para Placeholder de Input --- */
+.search-new input[type="text"]::placeholder,
+.search-weather input[type="text"]::placeholder {
+  color: #aaa;
+}
+
+/* --- Estilos para Foco de Input --- */
+.search-new input[type="text"]:focus,
+.search-weather input[type="text"]:focus {
+  border-color: #3f51b5;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
+}
+
+.search-new button,
+.search-weather button {
+  width: 100%;
+  padding: 12px 25px;
+  background-color: #3f51b5;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-size: 1em;
+  cursor: pointer;
+  outline: none;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+
+.search-new button:hover,
+.search-weather button:hover {
+  background-color: #6c757d;
+}
+
+.search-new button:active,
+.search-weather button:active {
+  background-color: #3f51b5; 
+  transform: translateY(1px);
+}
+
+/* --- Estilos para Parágrafos de Resultado do Clima --- */
+.weather-result p {
+  margin: 5px 0;
+  color: #333;
+  line-height: 1.6;
+  text-align: center;
+}
+
+#location {
+  font-weight: bold;
+  color: #6583e5;
+  text-align: center;
+}
+
+.news-result article {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: auto 1fr auto;
+  gap: 10px 15px;
+  align-items: start;
+}
+
+.news-result article img {
+  grid-column: 2;
+  grid-row: 1 / span 3;
+  max-width: 180px;
+  height: auto;
+  border-radius: 5px;
+  object-fit: cover;
+}
+
+#title {
+  grid-column: 1;
+  grid-row: 1;
+  font-size: 1.4em;
+  font-weight: bold;
+  color: #333;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* descrição da notícia */
+#description {
+  grid-column: 1;
+  grid-row: 2;
+  font-size: 0.95em;
+  line-height: 1.5;
+  color: #555;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+#publish-date {
+  color: #555;
+  font-size: 0.95em;
+  margin-bottom: 0;
+  grid-column: 2; 
+  grid-row: 3;
+  justify-self: end; 
+  align-self: end;
+}
+
+/*  botão "Saiba mais" */
+#button-read-more {
+  grid-column: 1;
+  grid-row: 3;
+  display: inline-block;
+  padding: 8px 15px;
+  background-color: #28a745;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 0.9em;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  border: none;
+  margin-top: 10px;
+  justify-self: start;
+}
+
+#button-read-more:hover {
+  background-color: #218838;
+  transform: translateY(-1px);
+}
+
+#button-read-more:active {
+  background-color: #1e7e34;
+  transform: translateY(0);
+}
+
+
+/* --- Responsividade Geral --- */
+@media (max-width: 768px) {
+  .main-content {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto;
+      gap: 30px;
+      justify-items: center;
+      padding: 20px 15px;
+  }
+
+  .section-news,
+  .section-search,
+  .news-result {
+      grid-column: 1;
+      grid-row: auto;
+      max-width: 500px;
+      width: 100%;
+      margin: 0;
+  }
+
+  .section-search {
+      margin-top: 25px; 
+  }
+
+  
+  .news-result article {
+      display: flex; 
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 10px;
+  }
+
+  .news-result article img {
+      order: -1;
+      margin-left: 0;
+      margin-bottom: 15px;
+      max-width: 100%;
+  }
+
+  #title,
+  #description {
+      width: 100%;
+      margin: 0;
+  }
+
+  #publish-date {
+      grid-column: auto;
+      grid-row: auto; 
+      justify-self: center; 
+      align-self: center;
+      margin-top: 10px;
+  }
+
+  #button-read-more {
+      width: fit-content;
+      margin: 10px auto 0 auto;
+      align-self: center;
+  }
+}
+ /*mobile */
+@media (max-width: 468px) {
+  body {
+      padding-top: 160px;
+  }
+
+  .main-header {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 15px 5%;
+  }
+
+  .header-info {
+      margin-top: 15px;
+      text-align: left;
+      width: 100%;
+  }
+
+  .local-time {
+      justify-content: flex-start;
+  }
+}
+
+/* --- Footer --- */
+footer {
+  background-color: #333;
+  color: white;
+  padding: 25px 20px;
+  text-align: center;
+  margin-top: 50px;
+}
+
+footer p {
+  margin: 5px 0;
+  font-size: 0.9em;
+  line-height: 1.5;
+}
+
+footer a {
+  color: #007bff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: #66b3ff;
+}
+
+footer address {
+  font-style: normal;
+  margin-top: 10px;
+  font-size: 0.85em;
+  color: #bbb;
+}
+@media (max-width: 768px) {
+  footer {
+      padding: 20px 15px;
+  }
+
+  footer p,
+  footer address {
+      font-size: 0.8em;
+  }
+}

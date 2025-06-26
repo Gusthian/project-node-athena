@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="/styles.css" />
+</head>
+<body>
+    <%- include('partials/header') %>
+    <main class="main-content">
+         <div class="section-news">
+            <form class="search-new">
+                <h3>Pesquise sua noticia:</h3>
+                <input type="text" placeholder="Digite sua busca...">
+                <button type="submit">Buscar</button>
+                <p id="result-news-p"></p>
+                <p id="total-result-news"></p>
+                <p id="link-all-news-p"></p>
+            </form>
+         </div>
+       
+        <div class="section-search">
+        <form class="search-weather">
+            <h3>Pesquise a temperatura de qualquer lugar do mundo:</h3>
+            <input type="text" placeholder="Digite a cidade...">
+            <button type="submit">Buscar</button>
+        </form>
+        <section class="weather-result">
+        <p id="location"></p>
+        <p id="forecast"></p>
+        </section>
+         </div>
+        <section class="news-result">
+           <!--Created by JS -->
+        </section>
+    </main>
+</body>
+<script type="text/javascript" src="/search.js"></script>
+<%- include('partials/footer') %>
+</html>
