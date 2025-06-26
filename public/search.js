@@ -1,4 +1,4 @@
-console.log('SOU UM ESCRIPTzzzz')
+
 const form = document.querySelector('form')
 const input = document.querySelector('input')
 
