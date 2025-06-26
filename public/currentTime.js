@@ -1,5 +1,4 @@
 //Dynamic current Time
-console.log('HELLO')
 function mainTime(){
     setInterval( function() {
         let localTime = new Date();
